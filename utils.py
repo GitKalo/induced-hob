@@ -1,6 +1,15 @@
-###
-# HEADER!! 
-###
+"""
+Utility functions for the example notebook on analysis of higher-order behvaiors 
+on simplicial complexes hypergraph analysis, including network generation, 
+dynamics simulation, and information-theoretic measures.
+
+Part of supporting code for the paper *Kaloyan Danovski, Sandro Meloni, 
+Michele Starnini, "Cross-order induced behaviors in contagion dynamics 
+on higher-order networks".*
+
+Author: Kaloyan Danovski
+Date: 17/02/2026
+"""
 
 from itertools import combinations
 
