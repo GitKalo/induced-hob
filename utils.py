@@ -218,6 +218,7 @@ def get_p_joint_all(X_all) :
 def cmi(p_yxsy0, n) :
     """
     Conditional mutual information between a single target and a set of source variables.
+    
     Assumes that:
         - dim 0 of dist corresponds to target (y);
         - dims 1 to ndim-m correspond to sources (xs); and
@@ -245,6 +246,8 @@ def cmi(p_yxsy0, n) :
 
 def dO(p_joint, m=1, return_cmi=False) :
     """
+    Dynamical O-information of a target variable with n sources and m-step target history.
+    
     Assumes that:
         - dim 0 of p_joint corresponds to target;
         - dims 1 to ndim-m correspond to sources; and
@@ -264,11 +267,13 @@ def dO(p_joint, m=1, return_cmi=False) :
     
 def redundancy(p_joint, return_pw_mis=False) :
     """
+    Bottom-level redundancy atom of PID assuming I_MMI redundancy function.
+
     Expect target in axis 0, sources in axes 1 to len(sources), and target history in last axis.
 
     Works for single-target, single-step history.
 
-    TODO: Make for more than one-step target history (arbitrary m)
+    TODO: Make for more than one-step target history (arbitrary m), also for `synergy` function.
     """
     ndim = p_joint.ndim
     s_ids = list(range(1, ndim-1))
@@ -286,7 +291,11 @@ def redundancy(p_joint, return_pw_mis=False) :
 
 def synergy(p_joint, mi_all=None, return_mi=False) :
     """
+    Top-level synergy atom of PID assuming I_MMI redundancy function.
+
     Expect target in axis 0, sources in axes 1 to len(sources), and target history in last axis.
+
+    Works for single-target, single-step history.
     """
     ndim = p_joint.ndim
     s_ids = list(range(1, ndim-1))
